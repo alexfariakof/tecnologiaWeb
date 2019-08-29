@@ -83,9 +83,17 @@
                 <option value="TO">Tocantins</option>
         </select>        
         <span class="msg-erro msg-estado" ></span><br>
-        <div class="lineButtons"></div>
 
-        <input type="button" value="Salvar" />
+        <label for="nome">Senha</label><br>
+        <input type="text" class="form-control" id="senha" name="senha" placeHolder="Digite a Senha" />
+        <span class="msg-erro msg-senha" ></span><br>
+
+        <label for="nome">Repita Senha</label><br>
+        <input type="text" class="form-control" id="rSenha" name="rSenha" placeHolder="Repita a Senha" />
+        <span class="msg-erro msg-rSenha" ></span><br>
+
+        <div class="lineButtons"></div>
+        <input type="button" value="Salvar" onclick="validarForm();" />
     </form>
 </body>
 </html>

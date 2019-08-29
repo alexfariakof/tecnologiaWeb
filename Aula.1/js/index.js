@@ -15,3 +15,9 @@ $(document).ready(function () {
         });
     });
 });
+
+function validarForm(){
+    contErro = 0;
+
+    
+} 
