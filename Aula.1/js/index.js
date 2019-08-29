@@ -18,6 +18,8 @@ $(document).ready(function () {
 
 function validarForm(){
     contErro = 0;
+alert('teste')
+    alert(form.querySelector('.msg-rSenha').value);
 
-    
+
 } 
