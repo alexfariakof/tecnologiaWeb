@@ -13,7 +13,6 @@ $(document).ready(function () {
             }
         });
     });
-
     $('.form-control').each(function() {        
         $(this).bind('blur',   validateForm);
     });
@@ -35,3 +34,4 @@ validateForm = () => {
     if (contErro > 0) return false;
     alert('Commit Realizado');
 }
+
