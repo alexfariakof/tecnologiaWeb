@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Formulario de Validação </title>
+    <title>Cadastro de Contatos </title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="lib/jquery/dist/jquery.js" ></script>
     <script type="text/javascript" src="js/index.js" ></script>
@@ -16,44 +16,45 @@
         <input type="text" class="form-control" id="nome" name="nome" placeHolder="Informe seu Nome"  />
         <span class="msg-erro msg-nome" ></span><br>
 
-        <label for="nome">Sexo</label><br>
+        <label for="Sexo">Sexo</label><br>
         <input type="radio" class="form-control" id="sexoM" name="sexo" value="M" checked  />
         <label for="sexoM">Masculino</label>
         <input type="radio" class="form-control" id="sexoF" name="sexo" value="F"   />
         <label for="sexoF">Femenino</label>
-        <span class="msg-erro msg-seco" ></span><br>
+        <span class="msg-erro msg-sexo" ></span><br>
 
-        <label for="nome">E-mail</label><br>
+        <label for="E-mail">E-mail</label><br>
         <input type="text" class="form-control" id="email" name="email" placeHolder="Informe seu email" />
         <span class="msg-erro msg-email" ></span><br>
 
-        <label for="nome">Celular</label><br>
+        <label for="Celular">Celular</label><br>
         <input type="text" class="form-control" id="celular" name="celular" placeHolder="Informe seu Celular" />
         <span class="msg-erro msg-celular" ></span><br>
 
-        <label for="nome">CEP</label><br>
+        <label for="CEP">CEP</label><br>
         <input type="text" class="form-control" id="cep" name="cep" placeHolder="Informe seu CEP" />
         <span class="msg-erro msg-cep" ></span><br>
 
-        <label for="nome">Endereço</label><br>
+        <label for="Endereço">Endereço</label><br>
         <input type="text" class="form-control" id="endereco" name="endereco" placeHolder="Informe seu Endereço" />
         <input type="text" class="form-control" id="numero" name="numero" placeHolder="Informe seu Número" />
-        <span class="msg-erro msg-edereco" ></span><br>
+        <span class="msg-erro msg-endereco msg-numero " ></span><br>
 
-        <label for="nome">Complemento</label><br>
+        <label for="Complemento">Complemento</label><br>
         <input type="text" class="form-control" id="complemento" name="complemento" placeHolder="Informe seu Complemento" />        
         <span class="msg-erro msg-complemento" ></span><br>
 
-        <label for="nome">Bairro</label><br>
+        <label for="Bairro">Bairro</label><br>
         <input type="text" class="form-control" id="bairro" name="bairro" placeHolder="Informe seu Bairro" />
         <span class="msg-erro msg-bairro" ></span><br>
 
-        <label for="nome">Cidade</label><br>
+        <label for="Cidade">Cidade</label><br>
         <input type="text" class="form-control" id="cidade" name="cidade" placeHolder="Informe seu Cidade" />
         <span class="msg-erro msg-cidade" ></span><br>
 
         <label for="nome">Estado</label><br>
-        <select class="form-control" id="uf" name="uf" >
+        <select class="form-control" id="estado" name="estado" >
+                <option value=""></option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
                 <option value="AP">Amapá</option>
@@ -85,7 +86,7 @@
         <span class="msg-erro msg-estado" ></span><br>
         <div class="lineButtons"></div>
 
-        <input type="button" value="Salvar" />
+        <input type="button" value="Salvar" onclick="validateForm();" />
     </form>
 </body>
 </html>
