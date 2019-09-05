@@ -47,6 +47,7 @@ validateForm = () => {
     if (contErro > 0)   return false;
     
     alert('Validação OK');
+    printVetor();
 }
 
 printVetor = () => {
