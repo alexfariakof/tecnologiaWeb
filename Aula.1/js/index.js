@@ -8,13 +8,14 @@ $(document).ready(function () {
                 $("#complemento").val(resposta.complemento);
                 $("#bairro").val(resposta.bairro);
                 $("#cidade").val(resposta.localidade);
-                $("#uf").val(resposta.estado);
+                $("#estado").val(resposta.uf);
                 $("#numero").focus();
             }
         });
     });
+  
     $('.form-control').each(function() {        
-        $(this).bind('blur',   validateForm);
+        $(this).bind('focusout',   validateForm);
     });
     
 });
@@ -24,14 +25,38 @@ validateForm = () => {
     $('.form-control').each(function() {
         //console.log($(this).val() + ':' + $(this).attr('type'));
 
-        if ($(this).val() === '')
-            document.querySelector('.msg-' + $(this).attr('name') ).innerHTML = '*';
+        if ($(this).val() === '') {
+            document.querySelector('.msg-' + $(this).attr('name') ).innerHTML = '*';            
+            contErro++;        
+        }
         else
             document.querySelector('.msg-' + $(this).attr('name') ).innerHTML = '';
-        contErro++;        
+        
     });    
 
-    if (contErro > 0) return false;
-    alert('Commit Realizado');
+    if (document.getElementById('senha').value !== document.getElementById('rSenha').value ||
+    document.getElementById('senha').value.length < 6 ||
+    document.getElementById('rSenha').value.length <6) {        
+        document.querySelector('.msg-rSenha').innerHTML = '*';
+        contErro++;        
+    }
+    else
+        document.querySelector('.msg-rSenha').innerHTML = '';
+    
+
+    if (contErro > 0)   return false;
+    
+    alert('Validação OK');
 }
 
+printVetor = () => {
+   vet = [];
+   
+   for(i=0;i<=10; i++) {
+       vet.push('Posição :' + i);
+   }
+   
+   for(i=0;i<=10; i++) {
+       console.log(vet[i]);
+   }
+}
