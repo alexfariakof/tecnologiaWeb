@@ -1,0 +1,100 @@
+http://srvpremium.co:8080/get.php?username=alexfariakof@gmail.com&password=FF0XtDeOTF&type=m3u_plus&output=ts
+
+
+$panel_url = 'http://DNS:PORT/';
+$username = 'test_username';
+$password = 'test_password';
+$max_connections = 10;
+$reseller = 1;
+$expire_date = strtotime( "+1 month" ); //from the time now, not from line's expire date.
+
+
+
+
+5.7.18
+Comandos docker Mais Utilizados
+   docker stop <id do container>
+   docker start <id do cotainer>
+   docker id <id do container>
+   docker container ls -a
+   docker images ou docker image ls
+   docker image rm <id da imagem>
+
+verificar se o serviço esta roando na porta.
+   netstat -ano |grep :<porta>
+
+
+- Cria base de dados MySqlServer e caso não existir uma imagem da versão fara download e executara a imagem
+    docker run -d --publish 3306:3306 --name=mysqlServerDB  -e MYSQL_RANDOM_ROOT_PASSWORD=YES mysql/mysql-server:5.7.22
+
+    docker run -d --publish 3306:3306 --name=mysqlServerDB --link honeyfrontend:dev -e MYSQL_RANDOM_ROOT_PASSWORD=YES mysql/mysql-server:5.7.22
+
+- Resgatar a senha criada padrão e realizar conexão e troca da senha root
+   1 - Para resgatar senha procurar no log GENERATED ROOT PASSWORD -> docker container  logs mysqlServerDB
+   2 - Conecta ao banco -> winpty docker exec -it mysqlServerDB mysql -uroot -p
+   3 - Alterar senha do root conetctado ao mySql -> ALTER USER 'root'@'localhost' IDENTIFIED BY 'masterToor';
+   4 - Criar Usuario para responder em todos os IPS
+        -> create user 'user'@'%' identified by 'user';
+        -> grant all privileges on *.* to 'root'@'%' with grant option;
+        -> flush privileges;
+
+ - Instalar MySqlServer Workbench para gerenciar Banco de Dados 
+  - Criar Banco de Dados SCHEMA
+	CREATE SCHEMA `HoneyDB` DEFAULT CHARACTER SET latin1 COLLATE latin1_general_ci ;
+
+ 
+  - Criando Tabela Usuario
+	CREATE TABLE `HoneyDB`.`Usuario` (
+	  `id` INT NOT NULL AUTO_INCREMENT,
+	  `nome` VARCHAR(45) NULL,
+	  `email` VARCHAR(45) NULL,
+	  `telefone` VARCHAR(45) NULL,
+	  PRIMARY KEY (`id`));
+	
+	
+	INSERT INTO `HoneyDB`.`Usuario` (`nome`, `email`, `telefone`) VALUES ('Alex Teste 01', 'alexfaria@gmail.com', '21992879319');
+
+  - compilando imagens com docker-compose -> Deve apontar para diretorio raiz da aplicação
+      docker-compose up -d --build
+
+  - Criando imagens apartir dos containers 
+	docker commit honeyfrontendHttpServer
+
+  - Tag docker image created
+	docker tag db6b03ab9463 alexfariakof/honeytv:1.0
+
+  - pulicando a imagem no docker hub
+      docker push alexfariakof/honeytv:1.0tag 
+  
+ 
+    
+
+
+docker-compose up -d --build  - comando de compilação das imagens e cria containers 
+
+docker run -p 3306:3306 170503-mysqld_5_7_18
+
+docker login -u AWS -p password https://311211456697.dkr.ecr.us-east-1.amazonaws.com
+
+aws ecr get-login --registry-ids 311211456697
+
+aws ecr get-login --region eu-north-1 --no-include-email
+
+aws configure set aws_access_key_id AKIAUQ5NF7C4QTPUIE5X
+NL9mn2uIpKZAc13sMA6HQzC2SS8qDbQ9XACEVMU8
+aws configure set default.region us-east-1
+aws configure set default.output json
+
+
+311211456697.dkr.ecr.us-east-1.amazonaws.com/4dabb18c-abda-43f0-b559-3c621468b429/cg-3924061291/mysql57:170503-mysqld_5_7_18-latest
+
+Invoke-Expression -Command (Get-ECRLoginCommand -Region eu-north-1 -RegistryId "311211456697").Command
+
+217273820646.dkr.ecr.us-east-1.amazonaws.com/4dabb18c-abda-43f0-b559-3c621468b429/cg-3924061291/mysql57:170503-mysqld_5_7_18-latest
+docker tag 22b3bed7b519 311211456697.dkr.ecr.eu-north-1.amazonaws.com/alexfariakof
+
+
+
+
+Container NAme : mysqlserver-app
+Service IAM Role : AWSServiceRoleForECS
