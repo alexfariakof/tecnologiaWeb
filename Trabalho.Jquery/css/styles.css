@@ -1,0 +1,5 @@
+input[type="text"]  {margin-bottom: 2px; padding: 2px; border-radius: 8px; }
+input[type="button"] { width: 120px; margin-left: 35px; display: block; border-radius: 4px; }
+select {margin-bottom: 2px; padding: 2px; border-radius: 8px }
+.msg-erro { color: red; }        
+.lineButtons { height: 1px; clear: both; overflow: hidden; background-color: rgb(20, 212, 62); margin: 4px; margin-top:8px;}
