@@ -28,6 +28,4 @@ class Login
             exit;
         }
     }
-
-
 }

@@ -32,8 +32,10 @@ session_start();
         if (isset($_SESSION["AUTH"]) && ($_SESSION["AUTH"] == true)) { ?>
            <span>Usuario Logado </span>
            <input class="btnLogOff" type="button" value="Sair"  />
+           <input class="btnNewContato" type="button" value="Novo Contato"  />
             <?php 
                   include('m_cadastro.php');
+                  include('cadastro.php');
                   $contato = new Cadastro();
                   $dados = $contato->getAll();
 

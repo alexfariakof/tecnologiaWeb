@@ -16,6 +16,9 @@ $(document).ready(function () {
         $("form").submit();
     });
     
+    $('.btnNewContato').unbind().bind('click', () => {
+        $('.modal').show();
+    })
     
     if ( $('#tableContato').length )
         $('#tableContato').DataTable();
