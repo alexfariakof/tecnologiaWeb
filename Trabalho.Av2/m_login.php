@@ -9,7 +9,7 @@ class Login
 
      public function isValidLogin($email, $senha){
          try {
-            $db= new PDO('mysql:host=localhost;dbname=contato_db', 'root', '');
+            $db= new PDO('mysql:host=localhost;dbname=id11614512_contato_db', 'root', '123456');
 
             $sth = $db->prepare('Select email, senha from contato where email=:email and senha=:senha; ');
     

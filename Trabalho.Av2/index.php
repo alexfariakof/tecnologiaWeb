@@ -1,5 +1,5 @@
 <?php
-
+header("Content-type: text/html; charset=utf-8"); 
 session_start();
 
 ?>
@@ -11,28 +11,28 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro de Contatos </title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <script type="text/javascript" src="js/jquery.min.js" ></script>
+    <script type="text/javascript" src="js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/index.js" ></script>
     <link rel="stylesheet" type="text/css" href="css/datatables.min.css">
-    <script type="text/javascript" src="css/datatables.min.js" ></script>
-
+    <script type="text/javascript" src="css/datatables.js" ></script>
     <script src="css/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="css/DataTables-1.10.20/js/dataTables.buttons.min.js"></script>
-    <script src="css/DataTables-1.10.20/js/buttons.flash.min.js"></script>
-    <script src="css/DataTables-1.10.20/js/buttons.html5.min.js"></script>
 
 
 </head>
 <body>
-    <div id="titulo">
-        <h1 > Login  </h1>   
-    </div>
+<br>
     <form id="form-login" action="" method="POST"  >
         <?php 
         if (isset($_SESSION["AUTH"]) && ($_SESSION["AUTH"] == true)) { ?>
-           <span>Usuario Logado </span>
-           <input class="btnLogOff" type="button" value="Sair"  />
-           <input class="btnNewContato" type="button" value="Novo Contato"  />
+             <div class="btn-group" role="group" aria-label="Exemplo básico">
+              <input class="btnLogOff" type="button" value="Sair" class="btn btn-primary" />
+                <input class="btnNewContato btn btn-primary" type="button" value="Novo Contato" data-toggle="modal" data-target="#modalCadastro"  />
+             </div>
+             <br>
             <?php 
                   include('m_cadastro.php');
                   include('cadastro.php');
@@ -40,6 +40,7 @@ session_start();
                   $dados = $contato->getAll();
 
             ?>
+            <br>
            <table id="tableContato" class="table table-striped table-bordered responsive dataTable no-footer">
                 <thead>
                     <tr>
@@ -96,7 +97,7 @@ session_start();
             <input type="text" class="form-control" id="senha" name="senha" placeHolder="Digite a Senha" maxlength="6" />
             <span class="msg-erro msg-senha" ></span><br>
             <div class="lineButtons"></div>
-            <input class="btnLogin" type="button" value="Fazer Login"  />
+            <button type="button"  class="btnLogin btn btn-success" >Fazer Login</button >
         <?php 
         }
         ?>

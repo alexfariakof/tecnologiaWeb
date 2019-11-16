@@ -1,27 +1,21 @@
-<div class="modal" tabindex="-1" role="dialog" style="display: none;" >
+<div id="modalCadastro" class="modal" tabindex="-1" role="dialog"  >
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title"> Cadastros de Contatos</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Modal body text goes here.</p>
-
-                <div id="titulo">
-                    <h1> Cadastros de Contatos </h1>
-                </div>
-
                 <label for="nome">Nome</label><br>
                 <input type="text" class="form-control" id="nome" name="nome" placeHolder="Informe seu Nome" />
                 <span class="msg-erro msg-nome"></span><br>
 
                 <label for="Sexo">Sexo</label><br>
-                <input type="radio" class="form-control" id="sexoM" name="sexo" value="M" checked />
+                <input type="radio" class="form-control" id="sexoM" name="sexo" value="Masculino" checked />
                 <label for="sexoM">Masculino</label>
-                <input type="radio" class="form-control" id="sexoF" name="sexo" value="F" />
+                <input type="radio" class="form-control" id="sexoF" name="sexo" value="Feminino" />
                 <label for="sexoF">Femenino</label>
                 <span class="msg-erro msg-sexo"></span><br>
 
@@ -92,11 +86,11 @@
                 <span class="msg-erro msg-senha"></span><br>
 
                 <label for="Repita Senha">Repita Senha</label><br>
-                <input type="text" class="form-control" id="rSenha" name="rSenha" placeHolder="Repita a Senha" maxlength="6" />
+                <input type="text" class="form-control" id="rSenha" name="rSenha" placeHolder="Confirme a Senha" maxlength="6" />
                 <span class="msg-erro msg-rSenha"></span><br>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="validateForm();">Salvar</button>
+                <button type="button" class="btn btn-primary btnSalvar" onclick="validateForm();">Salvar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             </div>
         </div>
